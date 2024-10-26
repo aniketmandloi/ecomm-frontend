@@ -1,10 +1,15 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import React from "react";
+import { BrowserRouter as Router, Routes } from "react-router-dom";
 import "./App.css";
 
 function App() {
-  return <h1>Hello World</h1>;
+  return (
+    <div>
+      <Router>
+        <Routes></Routes>
+      </Router>
+    </div>
+  );
 }
 
 export default App;
