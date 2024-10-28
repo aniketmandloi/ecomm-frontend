@@ -1,7 +1,10 @@
-import { Formik } from "formik";
+import { Form, Formik } from "formik";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { useState } from "react";
 import * as Yup from "yup";
+import { registerUser } from "../../store/auth/Auth.actions";
+import "../Register/Register.css";
 
 type RegisterFormValues = {
   email: string;
@@ -11,6 +14,7 @@ type RegisterFormValues = {
 
 const Register = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleRegister = async (
@@ -18,7 +22,7 @@ const Register = () => {
   ) => {
     try {
       setIsLoading(true);
-      await dispatchEvent(registerUser(credentials) as any);
+      await dispatch(registerUser(credentials) as any);
       setIsLoading(false);
       navigate("/");
     } catch (error) {
@@ -46,9 +50,9 @@ const Register = () => {
   };
 
   return (
-    <div>
-      <div>
-        <div>
+    <div className="app">
+      <div className="formComp">
+        <div className="formWrapper">
           <Formik
             initialValues={initialValues}
             validationSchema={registrationSchema}
@@ -57,7 +61,13 @@ const Register = () => {
               const { confirmPassword, ...credentials } = data;
               await handleRegister(credentials);
             }}
-          ></Formik>
+          >
+            <Form className="baseForm">
+              <header className="baseFormHeader">
+                <h1>Register</h1>
+              </header>
+            </Form>
+          </Formik>
         </div>
       </div>
     </div>
