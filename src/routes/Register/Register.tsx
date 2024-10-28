@@ -5,6 +5,7 @@ import { useState } from "react";
 import * as Yup from "yup";
 import { registerUser } from "../../store/auth/Auth.actions";
 import "../Register/Register.css";
+import TextField from "../../components/TextField";
 
 type RegisterFormValues = {
   email: string;
@@ -66,6 +67,19 @@ const Register = () => {
               <header className="baseFormHeader">
                 <h1>Register</h1>
               </header>
+              <TextField label="Email" name="email" id="email-input" />
+              <TextField
+                label="Password"
+                name="password"
+                id="password-input"
+                type="password"
+              />
+              <TextField
+                label="Confirm Password"
+                name="confirmPassword"
+                id="confirm-password-input"
+                type="password"
+              />
             </Form>
           </Formik>
         </div>
