@@ -1,11 +1,11 @@
 import { Form, Formik } from "formik";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import { useState } from "react";
 import * as Yup from "yup";
 import { registerUser } from "../../store/auth/Auth.actions";
 import "../Register/Register.css";
 import TextField from "../../components/TextField";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
 
 type RegisterFormValues = {
   email: string;
@@ -15,7 +15,8 @@ type RegisterFormValues = {
 
 const Register = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
+  const { error } = useAppSelector((state) => state.auth);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleRegister = async (
@@ -80,6 +81,7 @@ const Register = () => {
                 id="confirm-password-input"
                 type="password"
               />
+              {error && <div>{error}</div>}
             </Form>
           </Formik>
         </div>
