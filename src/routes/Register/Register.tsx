@@ -4,8 +4,10 @@ import { useState } from "react";
 import * as Yup from "yup";
 import { registerUser } from "../../store/auth/Auth.actions";
 import "../Register/Register.css";
-import TextField from "../../components/TextField";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import BasicTextField from "../../components/TextField";
+import CustomButton from "../../components/Button";
+import { Divider } from "@mui/material";
 
 type RegisterFormValues = {
   email: string;
@@ -68,20 +70,52 @@ const Register = () => {
               <header className="baseFormHeader">
                 <h1>Register</h1>
               </header>
-              <TextField label="Email" name="email" id="email-input" />
-              <TextField
+              <BasicTextField label="Email" name="email" id="email-input" />
+              <BasicTextField
                 label="Password"
                 name="password"
                 id="password-input"
                 type="password"
               />
-              <TextField
+              <BasicTextField
                 label="Confirm Password"
                 name="confirmPassword"
                 id="confirm-password-input"
                 type="password"
               />
               {error && <div>{error}</div>}
+              <CustomButton
+                variant="contained"
+                color="primary"
+                type="submit"
+                isLoading={isLoading}
+              >
+                Register
+              </CustomButton>
+              <Divider />
+              <div
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                <p>Register with</p>
+              </div>
+              <div className="social-btn-container">
+                <CustomButton
+                  variant="contained"
+                  sx={{ backgroundColor: "#4267b2", color: "#ffffff" }}
+                >
+                  Facebook
+                </CustomButton>
+                <CustomButton
+                  variant="contained"
+                  sx={{ backgroundColor: "#db4437", color: "#ffffff" }}
+                >
+                  Google
+                </CustomButton>
+              </div>
             </Form>
           </Formik>
         </div>
