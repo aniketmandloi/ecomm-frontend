@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { register } from "../../apis/auth";
+import { login, register } from "../../apis/auth";
 
 type RegisterCredentials = {
   email: string;
@@ -27,7 +27,7 @@ export const loginUser = createAsyncThunk(
   "auth/loginUser",
   async (credentials: LoginCredentials) => {
     try {
-      const response = await register(credentials);
+      const response = await login(credentials);
       return {
         user: response,
         isAuthenticated: true,
