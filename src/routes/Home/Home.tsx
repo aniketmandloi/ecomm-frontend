@@ -10,7 +10,7 @@ type Product = {
   description: string;
 };
 
-const Home = () => {
+const Home: React.FC = () => {
   const dispatch = useAppDispatch();
   const products = useAppSelector((state) => state.products);
 

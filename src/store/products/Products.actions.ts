@@ -3,7 +3,7 @@ import { fetchProduct, fetchProducts } from "../../apis/product";
 
 export const loadProduct = createAsyncThunk(
   "products/loadProduct",
-  async (productId: number, thunkAPI) => {
+  async (productId: number) => {
     try {
       const response = await fetchProduct(productId);
       return {
