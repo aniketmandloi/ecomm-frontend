@@ -4,7 +4,7 @@ import { loadProduct, loadProducts } from "./Products.actions";
 type Product = {
   id: number;
   name: string;
-  price: number; // Or `number`, depending on compatibility
+  price: number;
   description: string;
 };
 

@@ -2,11 +2,12 @@ import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { loadProducts } from "../../store/products/Products.actions";
 import ProductCard from "../../components/ProductCard/ProductCard";
+import "../Login/Login";
 
 type Product = {
   id: number;
   name: string;
-  price: number; // Or `number`, depending on compatibility
+  price: number;
   description: string;
 };
 

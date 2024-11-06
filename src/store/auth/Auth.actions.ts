@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { login, register } from "../../apis/auth";
+import { isLoggedIn, login, register } from "../../apis/auth";
 
 type RegisterCredentials = {
   email: string;
@@ -34,6 +34,22 @@ export const loginUser = createAsyncThunk(
       };
     } catch (error) {
       throw error;
+    }
+  }
+);
+
+export const checkLoginStatus = createAsyncThunk(
+  "auth/checkLogin",
+  async () => {
+    try {
+      const response = await isLoggedIn();
+      return {
+        cart: response,
+        isAuthenticated: true,
+        user: response.user,
+      };
+    } catch (err) {
+      throw err;
     }
   }
 );

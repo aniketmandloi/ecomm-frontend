@@ -25,3 +25,14 @@ export const login = async (credentials: LoginCredentials) => {
     throw error.response.data;
   }
 };
+
+// API interface for verifying the logged in status of a user
+export const isLoggedIn = async () => {
+  try {
+    const response = await API.get("auth/logged_in");
+
+    return response.data;
+  } catch (err: any) {
+    throw err.response.data;
+  }
+};
