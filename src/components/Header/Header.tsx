@@ -38,7 +38,7 @@ const Header: React.FC = () => {
     <AppBar position="static" sx={appBarSx}>
       <Toolbar sx={toolbarSx}>
         <Typography variant="h6" sx={titleSx}>
-          Codecademy Shop
+          Aniket's Shop
         </Typography>
         <div>
           {!isAuthenticated && (
