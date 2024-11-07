@@ -5,7 +5,7 @@ import { useAppDispatch } from "../../store/hooks";
 import { removeItem } from "../../store/cart/Cart.actions";
 
 type CartItemCardProps = {
-  cartItemId: string;
+  cartItemId: number;
   name: string;
   price: number;
   qty: number;
@@ -29,7 +29,7 @@ const CartItemCard: React.FC<CartItemCardProps> = (props) => {
   }
 
   async function remove() {
-    await dispatch(removeItem(parseInt(cartItemId)));
+    await dispatch(removeItem(cartItemId));
   }
   return (
     <>

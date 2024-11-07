@@ -2,6 +2,8 @@ import { Button, Divider, Typography } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 import { useAppSelector } from "../../store/hooks";
+import CartItemCard from "../../components/CartItemCard/CartItemCard";
+import "./CartItemCard.css";
 
 const Cart: React.FC = () => {
   const { items } = useAppSelector((state) => state.cart);
@@ -11,6 +13,7 @@ const Cart: React.FC = () => {
       return (total += (price * qty) / 100);
     }, 0);
   }
+
   return (
     <section className="cart-details-container">
       <div className="cart-info-container">
