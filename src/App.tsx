@@ -5,6 +5,8 @@ import Login from "./routes/Login/Login";
 import Home from "./routes/Home/Home";
 import ProductDetails from "./routes/ProductDetails/ProductDetails";
 import Header from "./components/Header/Header";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import Cart from "./routes/Cart/Cart";
 
 function App() {
   return (
@@ -16,6 +18,14 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/products/:productId" element={<ProductDetails />} />
+          <Route
+            path="/cart"
+            element={
+              <PrivateRoute>
+                <Cart />
+              </PrivateRoute>
+            }
+          />
         </Routes>
       </Router>
     </div>

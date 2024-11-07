@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useAppSelector } from "../../store/hooks";
 import CartItemCard from "../../components/CartItemCard/CartItemCard";
-import "./CartItemCard.css";
+import "./Cart.css";
 
 const Cart: React.FC = () => {
   const { items } = useAppSelector((state) => state.cart);

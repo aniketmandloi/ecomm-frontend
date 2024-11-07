@@ -3,13 +3,13 @@ import { Navigate } from "react-router-dom";
 import { useAppSelector } from "../../store/hooks";
 
 type PrivateRouteProps = {
-  element: React.ReactElement;
+  children: React.ReactElement;
 };
 
-const PrivateRoute: React.FC<PrivateRouteProps> = ({ element }) => {
-  const { isAuthenticated } = useAppSelector((state) => state.auth);
+const PrivateRoute: React.FC<PrivateRouteProps> = ({ children }) => {
+  const isAuthenticated = useAppSelector((state) => state.auth);
 
-  return isAuthenticated ? element : <Navigate to="/login" />;
+  return isAuthenticated ? children : <Navigate to="/login" />;
 };
 
 export default PrivateRoute;
